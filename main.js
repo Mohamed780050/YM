@@ -55,6 +55,8 @@ function initFloatingButton() {
     socialLinks.forEach((link, index) => {
         const linkElement = document.createElement('a');
         linkElement.href = link.url;
+        linkElement.target = "_blank";
+        linkElement.rel = "noopener noreferrer";
         linkElement.className = `mb-2 w-14 h-14 rounded-lg shadow-lg flex items-center justify-center text-2xl transition-all hover:scale-110 ${link.customStyle}`;
         linkElement.innerHTML = `<i class="${link.icon}"></i>`;
         linkElement.title = link.label;
