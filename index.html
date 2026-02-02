@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>لمسة حائط | Wall Touch - بناء وتدشين وترميم وديكور</title>
+    <title>لمسة حائط | YM - بناء وتدشين وترميم وديكور</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -232,6 +232,32 @@
         margin-bottom: 0.5rem;
         display: block;
       }
+      /* Footer Specific Styles */
+      .contact-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .contact-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+      .contact-card.whatsapp:hover {
+        border-color: #25d366;
+        color: #25d366;
+      }
+      .contact-card.instagram:hover {
+        border-color: #e4405f;
+        color: #e4405f;
+      }
+      .contact-card.phone:hover {
+        border-color: #ffffff;
+        color: #ffffff;
+      }
+      .contact-card.store:hover {
+        border-color: #f2ece4;
+        color: #f2ece4;
+      }
     </style>
   </head>
   <body class="overflow-x-hidden">
@@ -276,7 +302,7 @@
           style="animation-delay: 0.4s; opacity: 0"
         >
           لمسة حائط <span class="text-gray-400">|</span>
-          <span class="text-primary font-light">Wall Touch</span>
+          <span class="text-primary font-light">YM</span>
         </h1> -->
 
         <h2
@@ -587,51 +613,118 @@
       </div>
     </section>
     <!-- Contact Section -->
-    <footer id="contact" class="py-24 bg-brandBlack text-white px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-4">تواصل معنا</h2>
-        <div class="w-24 h-1 bg-white mx-auto mb-16"></div>
+    <!-- Contact Section -->
+    <footer
+      id="contact"
+      class="py-32 bg-brandBlack text-white px-4 relative overflow-hidden"
+    >
+      <!-- Decorative background glow -->
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,236,228,0.05)_0%,transparent_70%)] pointer-events-none"
+      ></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <div class="max-w-6xl mx-auto text-center relative z-10">
+        <span
+          class="section-kicker reveal mb-4"
+          style="color: rgba(255, 255, 255, 0.4)"
+          >تواصل مباشر</span
+        >
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-6 reveal">
+          نحن هنا <span class="text-primary font-light">لخدمتك</span>
+        </h2>
+        <div
+          class="w-24 h-1.5 bg-primary mx-auto mb-20 rounded-full reveal"
+        ></div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+          <!-- Call Now -->
           <a
             href="tel:+966543557939"
-            class="reveal group flex flex-col items-center gap-4 p-8 rounded-3xl bg-white/5 hover:bg-white/10 transition-colors"
+            class="reveal contact-card phone group flex flex-col items-center gap-6 p-10 rounded-[2.5rem] bg-white/5 transition-all"
           >
-            <i
-              class="fas fa-phone-alt text-4xl group-hover:scale-110 transition-transform"
-            ></i>
-            <span class="text-xl font-bold">اتصل بنا</span>
+            <div
+              class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300"
+            >
+              <i class="fas fa-phone-alt text-3xl"></i>
+            </div>
+            <div class="text-center">
+              <span class="block text-gray-400 text-sm mb-1">اتصال هاتفي</span>
+              <span class="text-2xl font-bold">اتصل بنا</span>
+            </div>
           </a>
+
+          <!-- WhatsApp -->
           <a
-            href="https://l.instagram.com/?u=https%3A%2F%2Fwa.me%2F966543557939%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGns71tTL6zxRmU_Oqc6i5nbNKoshv9naFSlnbUH4H7NwgmoLhxLu9afarzIyo_aem_NMe_IY05bkhxKwRhjEdvpA&e=AT3UsCzX6Ci9wqNF-1hP3NlgJRqjewg7bRR9ftLP2rBYimai6dB1tnFJdSaicUxIQH72QgBqCutPjKoqmJ_tRctzlkbTIQXLlE1HeqE5FQ"
+            href="https://wa.me/966543557939"
             target="_blank"
             rel="noopener noreferrer"
-            class="reveal reveal-delay-1 group flex flex-col items-center gap-4 p-8 rounded-3xl bg-white/5 hover:bg-white/10 transition-colors"
+            class="reveal reveal-delay-1 contact-card whatsapp group flex flex-col items-center gap-6 p-10 rounded-[2.5rem] bg-white/5 transition-all"
           >
-            <i
-              class="fab fa-whatsapp text-4xl group-hover:scale-110 transition-transform"
-            ></i>
-            <span class="text-xl font-bold">واتساب</span>
+            <div
+              class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-brandGreen group-hover:text-white transition-all duration-300"
+            >
+              <i class="fab fa-whatsapp text-4xl"></i>
+            </div>
+            <div class="text-center">
+              <span class="block text-gray-400 text-sm mb-1"
+                >متاح طوال اليوم</span
+              >
+              <span class="text-2xl font-bold">واتساب</span>
+            </div>
           </a>
+
+          <!-- Instagram -->
           <a
             href="https://www.instagram.com/ymlink.sa/"
             target="_blank"
             rel="noopener noreferrer"
-            class="reveal reveal-delay-2 group flex flex-col items-center gap-4 p-8 rounded-3xl bg-white/5 hover:bg-white/10 transition-colors"
+            class="reveal reveal-delay-2 contact-card instagram group flex flex-col items-center gap-6 p-10 rounded-[2.5rem] bg-white/5 transition-all"
           >
-            <i
-              class="fab fa-instagram text-4xl group-hover:scale-110 transition-transform"
-            ></i>
-            <span class="text-xl font-bold">إنستغرام</span>
+            <div
+              class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-[#E4405F] group-hover:text-white transition-all duration-300"
+            >
+              <i class="fab fa-instagram text-4xl"></i>
+            </div>
+            <div class="text-center">
+              <span class="block text-gray-400 text-sm mb-1">تابع أعمالنا</span>
+              <span class="text-2xl font-bold">إنستغرام</span>
+            </div>
+          </a>
+
+          <!-- Store Link -->
+          <a
+            href="https://walltouch1.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reveal reveal-delay-3 contact-card store group flex flex-col items-center gap-6 p-10 rounded-[2.5rem] bg-white/5 transition-all"
+          >
+            <div
+              class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300"
+            >
+              <i class="fas fa-shopping-bag text-3xl"></i>
+            </div>
+            <div class="text-center">
+              <span class="block text-gray-400 text-sm mb-1">تسوق الآن</span>
+              <span class="text-2xl font-bold">المتجر</span>
+            </div>
           </a>
         </div>
 
-        <div class="pt-8 border-t border-white/10 text-gray-400">
-          <p>© 2026 Wall Touch. جميع الحقوق محفوظة.</p>
+        <div
+          class="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-gray-500 text-sm"
+        >
+          <p>© 2026 YM. جميع الحقوق محفوظة.</p>
+          <div class="flex gap-8">
+            <a href="#" class="hover:text-white transition-colors"
+              >سياسة الخصوصية</a
+            >
+            <a href="#" class="hover:text-white transition-colors"
+              >الشروط والأحكام</a
+            >
+          </div>
         </div>
       </div>
     </footer>
-
     <!-- Floating Contact Button Container -->
     <div
       id="floating-contact"
