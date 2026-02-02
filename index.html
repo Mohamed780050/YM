@@ -39,11 +39,28 @@
         background-color: #fcfbf9;
       }
       .hero-gradient {
-        background: radial-gradient(
-          circle at 50% 50%,
-          #f2ece4 0%,
-          #fcfbf9 100%
-        );
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+          url("./images/build-craft-interiors-T3IG80KOLYQ-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .text-glow {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+      .experience-badge {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
       }
       .glass-card {
         background: rgba(255, 255, 255, 0.4);
@@ -133,16 +150,17 @@
         animation: fadeInUp 1s ease-out forwards;
       }
       .service-tag {
-        background: white;
-        padding: 0.5rem 1.5rem;
-        border-radius: 100px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-        border: 1px solid #f2ece4;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 0.6rem 2rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid transparent;
+        font-weight: 600;
       }
       .service-tag:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
         border-color: #000;
         background: #000;
         color: white;
@@ -174,46 +192,57 @@
     <!-- Hero Section -->
     <header
       id="hero"
-      class="min-h-screen flex flex-col items-center justify-between relative overflow-hidden px-4 py-12 hero-gradient"
+      class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 py-12 hero-gradient"
     >
-      <!-- Spacer for justify-between -->
-      <div class="h-0 md:h-20" aria-hidden="true"></div>
-      <!-- Animated Background Blobs -->
-      <div class="blob -top-24 -left-24 opacity-60"></div>
+      <!-- Premium Overlay for depth -->
       <div
-        class="blob -bottom-24 -right-24 opacity-40"
-        style="animation-delay: -5s; scale: 1.2"
-      ></div>
-      <div
-        class="blob top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10"
-        style="animation-delay: -10s; width: 800px; height: 800px"
+        class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 z-0"
       ></div>
 
-      <div class="z-10 text-center max-w-4xl relative">
+      <div class="z-10 text-center max-w-5xl relative">
+        <!-- Experience Badge -->
+        <div
+          class="animate-fade-in flex justify-center"
+          style="animation-delay: 0.2s; opacity: 0"
+        >
+          <div class="experience-badge animate-pulse">
+            <i class="fas fa-certificate text-yellow-400"></i>
+            <span>نصنع الفخامة في كل زاوية</span>
+          </div>
+        </div>
+
         <!-- Logo -->
-        <div class="mb-10 animate-fade-in flex items-center justify-center">
+        <div class="mb-12 animate-fade-in flex items-center justify-center">
           <div class="relative group">
             <div
-              class="absolute -inset-4 bg-white/50 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500 opacity-50"
+              class="absolute -inset-8 bg-black/40 rounded-full blur-3xl group-hover:bg-white/10 transition-all duration-700"
             ></div>
             <img
               src="./Screenshot From 2026-02-02 18-09-34.png"
               alt="logo"
-              class="w-48 h-48 md:w-64 md:h-64 relative z-10 transition-transform duration-500 group-hover:scale-105"
+              class="w-56 h-56 md:w-72 md:h-72 relative z-10 transition-all duration-700 group-hover:scale-110 drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
             />
           </div>
         </div>
 
-        <h2
-          class="text-3xl md:text-5xl text-gray-800 font-bold mb-10 animate-fade-up tracking-wider"
+        <!-- <h1
+          class="text-4xl md:text-7xl font-extrabold text-white mb-6 animate-fade-up tracking-tight leading-tight"
           style="animation-delay: 0.4s; opacity: 0"
         >
-          جدة
+          لمسة حائط <span class="text-gray-400">|</span>
+          <span class="text-primary font-light">Wall Touch</span>
+        </h1> -->
+
+        <h2
+          class="text-2xl md:text-4xl text-gray-300 font-medium mb-12 animate-fade-up"
+          style="animation-delay: 0.6s; opacity: 0"
+        >
+          رواد البناء والتدشين في جدة
         </h2>
 
         <div
-          class="animate-fade-up flex flex-wrap items-center justify-center gap-4 text-lg md:text-xl font-medium text-gray-700 mb-14"
-          style="animation-delay: 0.6s; opacity: 0"
+          class="animate-fade-up flex flex-wrap items-center justify-center gap-6 mb-16"
+          style="animation-delay: 0.8s; opacity: 0"
         >
           <span class="service-tag">بناء</span>
           <span class="service-tag">تشطيب</span>
@@ -223,11 +252,11 @@
 
         <div
           class="animate-fade-up flex flex-col md:flex-row items-center justify-center gap-6"
-          style="animation-delay: 0.8s; opacity: 0"
+          style="animation-delay: 1s; opacity: 0"
         >
           <a
             href="tel:+966543557939"
-            class="group w-full md:w-auto bg-brandBlack text-white px-12 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-4 hover:bg-neutral-800 transition-all shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] hover:-translate-y-1"
+            class="group w-full md:w-auto bg-white text-brandBlack px-14 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-4 hover:bg-neutral-200 transition-all shadow-[0_20px_40px_-15px_rgba(255,255,255,0.3)] hover:-translate-y-2"
           >
             <span>اتصل الآن</span>
             <i
@@ -238,7 +267,7 @@
             href="https://l.instagram.com/?u=https%3A%2F%2Fwa.me%2F966543557939%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGns71tTL6zxRmU_Oqc6i5nbNKoshv9naFSlnbUH4H7NwgmoLhxLu9afarzIyo_aem_NMe_IY05bkhxKwRhjEdvpA&e=AT3UsCzX6Ci9wqNF-1hP3NlgJRqjewg7bRR9ftLP2rBYimai6dB1tnFJdSaicUxIQH72QgBqCutPjKoqmJ_tRctzlkbTIQXLlE1HeqE5FQ"
             target="_blank"
             rel="noopener noreferrer"
-            class="group w-full md:w-auto bg-white border-2 border-brandBlack text-brandBlack px-12 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-4 hover:bg-brandBlack hover:text-white transition-all shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] hover:-translate-y-1"
+            class="group w-full md:w-auto bg-transparent border-2 border-white text-white px-14 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-4 hover:bg-white hover:text-brandBlack transition-all shadow-[0_10px_30px_-10px_rgba(255,255,255,0.1)] hover:-translate-y-2"
           >
             <span>تواصل معنا</span>
             <i
@@ -247,8 +276,6 @@
           </a>
         </div>
       </div>
-
-      <!-- Scroll Indicator -->
     </header>
 
     <!-- Services Section -->
