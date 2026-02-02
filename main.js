@@ -8,23 +8,30 @@ const socialLinks = [
     {
         name: "WhatsApp",
         icon: "fab fa-whatsapp",
-        url: "https://wa.me/+",
+        url: "https://l.instagram.com/?u=https%3A%2F%2Fwa.me%2F966543557939%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGns71tTL6zxRmU_Oqc6i5nbNKoshv9naFSlnbUH4H7NwgmoLhxLu9afarzIyo_aem_NMe_IY05bkhxKwRhjEdvpA&e=AT3UsCzX6Ci9wqNF-1hP3NlgJRqjewg7bRR9ftLP2rBYimai6dB1tnFJdSaicUxIQH72QgBqCutPjKoqmJ_tRctzlkbTIQXLlE1HeqE5FQ",
         customStyle: "bg-[#25D366] text-white",
         label: "واتساب"
     },
     {
         name: "Call",
         icon: "fas fa-phone-alt",
-        url: "tel:+",
+        url: "tel:⁦+966 54 355 7939⁩",
         customStyle: "bg-black text-white",
         label: "اتصال مباشر"
     },
     {
         name: "Instagram",
         icon: "fab fa-instagram",
-        url: "https://instagram.com/",
+        url: "https://www.instagram.com/ymlink.sa/",
         customStyle: "bg-[#E4405F] text-white",
         label: "إنستغرام"
+    },
+    {
+        name: "Store",
+        icon: "fas fa-shopping-bag",
+        url: "https://walltouch1.com/",
+        customStyle: "bg-[#1e293b] text-white",
+        label: "المتجر الإلكتروني"
     }
 ];
 
