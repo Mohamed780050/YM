@@ -88,5 +88,36 @@ function initFloatingButton() {
     container.appendChild(toggleBtn);
 }
 
-// 3. Run on DOM load
-document.addEventListener('DOMContentLoaded', initFloatingButton);
+// 3. Scroll Reveal Animation Logic
+function initScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    const observerOptions = {
+        root: null, // use the viewport
+        rootMargin: '0px',
+        threshold: 0.15 // trigger when 15% of the element is visible
+    };
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: stop observing once it's revealed
+                // observer.unobserve(entry.target);
+            } else {
+                // Optional: remove class when it leaves viewport for re-animation
+                // entry.target.classList.remove('active');
+            }
+        });
+    }, observerOptions);
+    
+    reveals.forEach(reveal => {
+        observer.observe(reveal);
+    });
+}
+
+// 4. Run on DOM load
+document.addEventListener('DOMContentLoaded', () => {
+    initFloatingButton();
+    initScrollReveal();
+});
