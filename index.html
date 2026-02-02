@@ -39,10 +39,49 @@
         background-color: #fcfbf9;
       }
       .hero-gradient {
-        background: linear-gradient(
-          rgba(242, 236, 228, 0.8),
-          rgba(242, 236, 228, 0.95)
+        background: radial-gradient(
+          circle at 50% 50%,
+          #f2ece4 0%,
+          #fcfbf9 100%
         );
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .blob {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: linear-gradient(
+          180deg,
+          #f2ece4 0%,
+          rgba(242, 236, 228, 0) 100%
+        );
+        filter: blur(80px);
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        z-index: 0;
+        animation: blob-animate 20s infinite alternate;
+      }
+      @keyframes blob-animate {
+        0% {
+          border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+          transform: translate(100px, -50px) scale(1.1);
+        }
+        66% {
+          border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
+          transform: translate(-50px, 100px) scale(0.9);
+        }
+        100% {
+          border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+          transform: translate(0, 0) scale(1);
+        }
       }
       .reveal {
         opacity: 0;
@@ -93,80 +132,123 @@
       .animate-fade-up {
         animation: fadeInUp 1s ease-out forwards;
       }
+      .service-tag {
+        background: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 100px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid #f2ece4;
+      }
+      .service-tag:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        border-color: #000;
+        background: #000;
+        color: white;
+      }
+      .scroll-indicator {
+        display: block;
+        transition: all 0.3s ease;
+        animation: bounce 2s infinite;
+        z-index: 20;
+      }
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0) translateX(-50%);
+        }
+        40% {
+          transform: translateY(-10px) translateX(-50%);
+        }
+        60% {
+          transform: translateY(-5px) translateX(-50%);
+        }
+      }
     </style>
   </head>
   <body class="overflow-x-hidden">
     <!-- Hero Section -->
     <header
       id="hero"
-      class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4"
+      class="min-h-screen flex flex-col items-center justify-between relative overflow-hidden px-4 py-12 hero-gradient"
     >
-      <div class="z-10 text-center max-w-4xl">
-        <!-- Logo Placeholder -->
-        <div class="mb-8 animate-fade-in flex items-center justify-center">
-          <img
-            src="./Screenshot From 2026-02-02 18-09-34.png"
-            alt="logo"
-            class="w-64 h-64"
-          />
+      <!-- Spacer for justify-between -->
+      <div class="h-0 md:h-20" aria-hidden="true"></div>
+      <!-- Animated Background Blobs -->
+      <div class="blob -top-24 -left-24 opacity-60"></div>
+      <div
+        class="blob -bottom-24 -right-24 opacity-40"
+        style="animation-delay: -5s; scale: 1.2"
+      ></div>
+      <div
+        class="blob top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10"
+        style="animation-delay: -10s; width: 800px; height: 800px"
+      ></div>
+
+      <div class="z-10 text-center max-w-4xl relative">
+        <!-- Logo -->
+        <div class="mb-10 animate-fade-in flex items-center justify-center">
+          <div class="relative group">
+            <div
+              class="absolute -inset-4 bg-white/50 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500 opacity-50"
+            ></div>
+            <img
+              src="./Screenshot From 2026-02-02 18-09-34.png"
+              alt="logo"
+              class="w-48 h-48 md:w-64 md:h-64 relative z-10 transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
         </div>
 
-        <!-- <h1
-          class="text-5xl md:text-7xl font-bold text-brandBlack mb-4 animate-fade-up"
-          style="animation-delay: 0.2s; opacity: 0"
-        >
-         YM
-        </h1> -->
         <h2
-          class="text-2xl md:text-3xl text-gray-700 mb-8 animate-fade-up"
+          class="text-3xl md:text-5xl text-gray-800 font-bold mb-10 animate-fade-up tracking-wider"
           style="animation-delay: 0.4s; opacity: 0"
         >
           جدة
         </h2>
 
         <div
-          class="animate-fade-up flex flex-wrap items-center justify-center gap-4 text-xl md:text-2xl text-gray-600 mb-12"
+          class="animate-fade-up flex flex-wrap items-center justify-center gap-4 text-lg md:text-xl font-medium text-gray-700 mb-14"
           style="animation-delay: 0.6s; opacity: 0"
         >
-          <span>بناء</span>
-          <span class="text-gray-300">|</span>
-          <span>تشطيب</span>
-          <span class="text-gray-300">|</span>
-          <span>ترميم</span>
-          <span class="text-gray-300">|</span>
-          <span>ديكور</span>
+          <span class="service-tag">بناء</span>
+          <span class="service-tag">تشطيب</span>
+          <span class="service-tag">ترميم</span>
+          <span class="service-tag">ديكور</span>
         </div>
 
         <div
-          class="animate-fade-up flex flex-col md:flex-row items-center justify-center gap-4"
+          class="animate-fade-up flex flex-col md:flex-row items-center justify-center gap-6"
           style="animation-delay: 0.8s; opacity: 0"
         >
           <a
             href="tel:+966543557939"
-            class="w-full md:w-auto bg-brandBlack text-white px-10 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 hover:scale-105 transition-transform shadow-lg"
+            class="group w-full md:w-auto bg-brandBlack text-white px-12 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-4 hover:bg-neutral-800 transition-all shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] hover:-translate-y-1"
           >
             <span>اتصل الآن</span>
-            <i class="fas fa-phone-alt"></i>
+            <i
+              class="fas fa-phone-alt group-hover:rotate-12 transition-transform"
+            ></i>
           </a>
           <a
             href="https://l.instagram.com/?u=https%3A%2F%2Fwa.me%2F966543557939%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGns71tTL6zxRmU_Oqc6i5nbNKoshv9naFSlnbUH4H7NwgmoLhxLu9afarzIyo_aem_NMe_IY05bkhxKwRhjEdvpA&e=AT3UsCzX6Ci9wqNF-1hP3NlgJRqjewg7bRR9ftLP2rBYimai6dB1tnFJdSaicUxIQH72QgBqCutPjKoqmJ_tRctzlkbTIQXLlE1HeqE5FQ"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full md:w-auto border-2 border-brandBlack text-brandBlack px-10 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 hover:bg-brandBlack hover:text-white transition-all shadow-md"
+            class="group w-full md:w-auto bg-white border-2 border-brandBlack text-brandBlack px-12 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-4 hover:bg-brandBlack hover:text-white transition-all shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] hover:-translate-y-1"
           >
             <span>تواصل معنا</span>
-            <i class="fab fa-whatsapp text-2xl"></i>
+            <i
+              class="fab fa-whatsapp text-3xl group-hover:scale-110 transition-transform"
+            ></i>
           </a>
         </div>
       </div>
 
-      <!-- Background decorative elements -->
-      <div
-        class="absolute top-0 right-0 w-64 h-64 bg-primary rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl opacity-50"
-      ></div>
-      <div
-        class="absolute bottom-0 left-0 w-96 h-96 bg-primary rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl opacity-30"
-      ></div>
+      <!-- Scroll Indicator -->
     </header>
 
     <!-- Services Section -->
@@ -220,7 +302,7 @@
           >
             <div class="aspect-square rounded-2xl overflow-hidden mb-6">
               <img
-                src="/images/1.webp"
+                src="./images/1.webp"
                 alt="ترميم"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -317,7 +399,7 @@
             class="reveal reveal-delay-1 relative group overflow-hidden rounded-3xl shadow-lg aspect-video"
           >
             <img
-              src="/images/2.webp"
+              src="./images/2.webp"
               alt="مشروع 4"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
