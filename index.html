@@ -149,6 +149,26 @@
       .animate-fade-up {
         animation: fadeInUp 1s ease-out forwards;
       }
+      .service-tag {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 0.8rem 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+      }
+      .service-tag:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        border-color: #fff;
+        background: #fff;
+        color: #000;
+      }
       /* Service Card Specific Styles */
       .service-card {
         transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -206,6 +226,53 @@
         color: #000;
         z-index: 10;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      /* Project Specific Styles */
+      .project-card {
+        transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+      }
+      .project-hover-content {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0.4) 50%,
+          transparent 100%
+        );
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+      }
+      .project-card:hover .project-hover-content {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .project-badge {
+        background: rgba(242, 236, 228, 0.2);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.4rem 1rem;
+        border-radius: 100px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: white;
+      }
+      .view-project-btn {
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        color: #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        transform: scale(0.5);
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .project-card:hover .view-project-btn {
+        transform: scale(1);
+        opacity: 1;
       }
       .scroll-indicator {
         display: block;
@@ -358,10 +425,10 @@
           class="animate-fade-up flex flex-wrap items-center justify-center gap-6 mb-16"
           style="animation-delay: 0.8s; opacity: 0"
         >
-          <span class="service-tag">بناء</span>
-          <span class="service-tag">تشطيب</span>
-          <span class="service-tag">ترميم</span>
-          <span class="service-tag">ديكور</span>
+          <a href="#services"><span class="service-tag">بناء</span></a>
+          <a href="#services"><span class="service-tag">تشطيب</span></a>
+          <a href="#services"><span class="service-tag">ترميم</span></a>
+          <a href="#services"><span class="service-tag">ديكور</span></a>
         </div>
 
         <div
@@ -510,82 +577,159 @@
       </div>
     </section>
     <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-[#f9f7f4] px-4">
-      <div class="max-w-6xl mx-auto text-center">
-        <h2 class="text-4xl font-bold text-brandBlack mb-4">مشاريعنا في جدة</h2>
-        <div class="w-32 h-1 bg-brandBlack mx-auto mb-16"></div>
+    <section
+      id="projects"
+      class="py-32 bg-[#fcfbf9] px-4 relative overflow-hidden"
+    >
+      <!-- Vertical side accent -->
+      <div
+        class="absolute right-0 top-1/4 h-1/2 w-1 bg-brandBlack opacity-5"
+      ></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-right">
+      <div class="max-w-7xl mx-auto text-center relative z-10">
+        <span class="section-kicker reveal mb-4">معرض الأعمال</span>
+        <h2
+          class="text-4xl md:text-5xl font-extrabold text-brandBlack mb-6 reveal"
+        >
+          مشاريعنا في <span class="text-primary font-light">جدة</span>
+        </h2>
+        <div
+          class="w-24 h-1.5 bg-brandBlack mx-auto mb-20 rounded-full reveal"
+        ></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-right">
           <!-- Project 1 -->
           <div
-            class="reveal relative group overflow-hidden rounded-3xl shadow-lg aspect-video"
+            class="reveal project-card relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/10]"
           >
             <img
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
               alt="مشروع 1"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
             />
+            <!-- Project Overlay Top -->
+            <div class="absolute top-8 left-8 z-20">
+              <div class="view-project-btn">
+                <i class="fas fa-arrow-left"></i>
+              </div>
+            </div>
+
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"
+              class="absolute inset-0 project-hover-content z-10 flex flex-col justify-end p-10 md:p-12"
             >
-              <h4 class="text-white text-2xl font-bold">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="project-badge">سكني</span>
+                <span class="project-badge">فاخر</span>
+              </div>
+              <h4
+                class="text-white text-3xl md:text-4xl font-extrabold leading-tight"
+              >
                 فيلا سكنية - حي الشاطئ
               </h4>
-              <p class="text-gray-300 mt-2">تشطيب وديكور داخلي كامل</p>
+              <p class="text-gray-300 mt-4 text-lg font-medium opacity-80">
+                تشطيب وديكور داخلي كامل بلمسات عصرية
+              </p>
             </div>
           </div>
+
           <!-- Project 2 -->
           <div
-            class="reveal reveal-delay-1 relative group overflow-hidden rounded-3xl shadow-lg aspect-video"
+            class="reveal reveal-delay-1 project-card relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/10]"
           >
             <img
               src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=1200"
               alt="مشروع 2"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
             />
+            <div class="absolute top-8 left-8 z-20">
+              <div class="view-project-btn">
+                <i class="fas fa-arrow-left"></i>
+              </div>
+            </div>
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"
+              class="absolute inset-0 project-hover-content z-10 flex flex-col justify-end p-10 md:p-12"
             >
-              <h4 class="text-white text-2xl font-bold">مجمع سكني - أبحر</h4>
-              <p class="text-gray-300 mt-2">أعمال بناء وإنشاءات</p>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="project-badge">تجاري</span>
+                <span class="project-badge">بناء</span>
+              </div>
+              <h4
+                class="text-white text-3xl md:text-4xl font-extrabold leading-tight"
+              >
+                مجمع سكني - أبحر
+              </h4>
+              <p class="text-gray-300 mt-4 text-lg font-medium opacity-80">
+                أعمال بناء وإنشاءات كبرى
+              </p>
             </div>
           </div>
+
           <!-- Project 3 -->
           <div
-            class="reveal relative group overflow-hidden rounded-3xl shadow-lg aspect-video"
+            class="reveal project-card relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/10]"
           >
             <img
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200"
               alt="مشروع 3"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
             />
+            <div class="absolute top-8 left-8 z-20">
+              <div class="view-project-btn">
+                <i class="fas fa-arrow-left"></i>
+              </div>
+            </div>
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"
+              class="absolute inset-0 project-hover-content z-10 flex flex-col justify-end p-10 md:p-12"
             >
-              <h4 class="text-white text-2xl font-bold">ترميم قصر كلاسيكي</h4>
-              <p class="text-gray-300 mt-2">تحديث وتطوير الواجهات</p>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="project-badge">تراثي</span>
+                <span class="project-badge">ترميم</span>
+              </div>
+              <h4
+                class="text-white text-3xl md:text-4xl font-extrabold leading-tight"
+              >
+                ترميم قصر كلاسيكي
+              </h4>
+              <p class="text-gray-300 mt-4 text-lg font-medium opacity-80">
+                تحديث وتطوير الواجهات الخارجية
+              </p>
             </div>
           </div>
+
           <!-- Project 4 -->
           <div
-            class="reveal reveal-delay-1 relative group overflow-hidden rounded-3xl shadow-lg aspect-video"
+            class="reveal reveal-delay-1 project-card relative group overflow-hidden rounded-[2.5rem] shadow-2xl aspect-[16/10]"
           >
             <img
               src="./images/2.webp"
               alt="مشروع 4"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
             />
+            <div class="absolute top-8 left-8 z-20">
+              <div class="view-project-btn">
+                <i class="fas fa-arrow-left"></i>
+              </div>
+            </div>
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"
+              class="absolute inset-0 project-hover-content z-10 flex flex-col justify-end p-10 md:p-12"
             >
-              <h4 class="text-white text-2xl font-bold">مكتب إداري فاخر</h4>
-              <p class="text-gray-300 mt-2">تصميم وتنفيذ ديكورات</p>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="project-badge">إداري</span>
+                <span class="project-badge">ديكور</span>
+              </div>
+              <h4
+                class="text-white text-3xl md:text-4xl font-extrabold leading-tight"
+              >
+                مكتب إداري فاخر
+              </h4>
+              <p class="text-gray-300 mt-4 text-lg font-medium opacity-80">
+                تصميم وتنفيذ ديكورات داخلية
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-
     <!-- Why Us Section -->
     <section
       id="why-us"
